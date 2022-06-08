@@ -118,9 +118,6 @@ jobs:
       - name: Lint invalid translation entries
         run: bb lang:invalid-translations
 
-      - name: Lint datalog rules
-        run: scripts/lint_rules.clj
-
   e2e-test:
     runs-on: ubuntu-latest
 
