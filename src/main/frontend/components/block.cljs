@@ -557,7 +557,7 @@
         full-path (if (util/absolute-path? path)
                     path
                     (.. util/node-path (join repo-path (config/get-local-asset-absolute-path path))))
-        ext-name (util/get-file-ext full-path)
+        ext-name (util/get-file-ext (string/replace full-path #"(#|\?).*$" ""))
         title-or-path (cond
                         (string? title)
                         title
