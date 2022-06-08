@@ -24,7 +24,7 @@
   [full-path]
   (let [filename (util/node-path.basename full-path)
         web-link? (string/starts-with? full-path "http")
-        ext-name (util/get-file-ext filename)
+        ext-name (util/get-file-ext (string/replace filename #"(#|\?).*$" ""))
         url (cond
               web-link?
               full-path

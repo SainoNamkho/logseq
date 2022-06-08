@@ -270,7 +270,7 @@
       (p/then (editor-handler/make-asset-url href) #(reset! src %)))
 
     (when @src
-      (let [ext (keyword (util/get-file-ext @src))
+      (let [ext (keyword (util/get-file-ext (string/replace @src #"(#|\?).*$" "")))
             share-fn (fn [event]
                        (util/stop event)
                        (when (mobile-util/native-platform?)
